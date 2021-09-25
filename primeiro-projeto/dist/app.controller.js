@@ -16,19 +16,19 @@ let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
-    getHello() {
-        return this.appService.getHello();
+    getAll() {
+        return this.appService.getAll();
     }
     getName() {
         return this.appService.getName();
     }
 };
 __decorate([
-    (0, common_1.Get)('/hello'),
+    (0, common_1.Get)('/filmes'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
-], AppController.prototype, "getHello", null);
+], AppController.prototype, "getAll", null);
 __decorate([
     (0, common_1.Get)('/name'),
     __metadata("design:type", Function),

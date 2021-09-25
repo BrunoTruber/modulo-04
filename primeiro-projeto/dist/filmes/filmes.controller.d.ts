@@ -1,8 +1,11 @@
 import { CreateFilmeDto } from './dto/create-filme.dto';
-import { FilmesService, Filme } from './filmes.service';
+import { FilmesService } from './filmes.service';
+import { Filme } from '.prisma/client';
 export declare class FilmesController {
     private filmesService;
     constructor(filmesService: FilmesService);
-    index(): Filme[];
-    create(createFilme: CreateFilmeDto): void;
+    index(): Promise<Filme[]>;
+    getById(id: number): Promise<Filme>;
+    create(createFilme: CreateFilmeDto): Promise<Filme>;
+    Delete(id: number): Promise<any>;
 }

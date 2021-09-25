@@ -20,26 +20,48 @@ let FilmesController = class FilmesController {
     constructor(filmesService) {
         this.filmesService = filmesService;
     }
-    index() {
+    async index() {
         return this.filmesService.getAll();
     }
-    create(createFilme) {
-        this.filmesService.createFilme(createFilme);
+    async getById(id) {
+        return this.filmesService.getById(id);
+    }
+    async create(createFilme) {
+        return this.filmesService.createFilme(createFilme);
+    }
+    async Delete(id) {
+        return this.filmesService.Delete(id) `;
+  }
+};
     }
 };
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Array)
+    __metadata("design:returntype", Promise)
 ], FilmesController.prototype, "index", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], FilmesController.prototype, "getById", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_filme_dto_1.CreateFilmeDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], FilmesController.prototype, "create", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], FilmesController.prototype, "Delete", null);
 FilmesController = __decorate([
     (0, common_1.Controller)('filmes'),
     __metadata("design:paramtypes", [filmes_service_1.FilmesService])
