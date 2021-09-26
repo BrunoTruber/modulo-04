@@ -6,10 +6,11 @@ import { PrismaService } from 'src/prisma/prisma.service';
 @Injectable()//oque esse Injectable esta fazendo?
 export class FilmesService {
   filme: any; // de onde veio esse filme e porque?
+  
          // prisma virou PrismaService?
   constructor(private prisma: PrismaService) { }
 
-  async getAll(): Promise<Filme[]> { // o que essa promise esta fazendo?
+  async getAll(): Promise<Filme[]> { // o que essa promise esta fazendo? porque Filme tem [] no final?
     return this.prisma.filme.findMany();
   }
 
