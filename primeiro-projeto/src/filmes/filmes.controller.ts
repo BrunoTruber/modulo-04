@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Post, Delete, Param } from '@nestjs/common';
+import { Body, Controller, Get, Post, Delete, Put, Param, ValidationPipe, UsePipes, ParseIntPipe  } from '@nestjs/common';
 import { CreateFilmeDto } from './dto/create-filme.dto';
 import { FilmesService } from './filmes.service';
 import { Filme } from '.prisma/client'
@@ -8,23 +8,41 @@ import { Filme } from '.prisma/client'
 export class FilmesController {// filmesService virou FilmesService?
   constructor(private filmesService: FilmesService) {}
 
-  @Get() //o que o método index esta fazendo? oque a promise esta fazendo?
-  async index():Promise<Filme[]> {// esse ':' faz o que?
+  @Get('/list') //o que o método index esta fazendo? oque a promise esta fazendo?
+  @UsePipes(ValidationPipe)
+  async findMany():Promise<Filme[]> {// esse ':' faz o que?
     return this.filmesService.getAll();
   }
 
-  @Get(':id') //(@Param('id') id: number) busca e referencia o id que esta neste getById(id)?
-  async  getById(@Param('id') id: number) : Promise<Filme> {
-    return this.filmesService.getById(id);
-  }
+  // @Get(':id') //(@Param('id') id: number) busca e referencia o id que esta neste getById(id)?
+  // async  getById(@Param('id') id: number) : Promise<Filme> {
+  //   return this.filmesService.getById(id);
+  // }
 
-  @Post()// createFilme virou CreateFilmeDto? oque é esse @Body()?
+  @Post('/create')// createFilme virou CreateFilmeDto? oque é esse @Body()?
+  @UsePipes(ValidationPipe)
   async create(@Body() createFilme: CreateFilmeDto): Promise<Filme> {//oque essa promise esta fazendo? 
     return this.filmesService.createFilme(createFilme);
   }
 
-  @Delete(':id')
-  async Delete(@Param('id') id: number) {
-    return this.filmesService.delete(id)`;
+  @Delete('/delete/:id')
+  @UsePipes(ValidationPipe)
+  async delete(@Param('id') id: string) {
+    return this.filmesService.deleteOneFilme({ id: Number(id) });
+  }
+
+  @Delete('/delete')
+  @UsePipes(ValidationPipe)
+  async deleteMany() {
+    return this.filmesService.deletAllFilmes()
+  }
+
+  @Put('update/:id')
+  @UsePipes(ValidationPipe)
+  async update(
+    @Body() updateFilme: CreateFilmeDto,
+    @Param('id', ParseIntPipe) id: number,
+  ): Promise<Filme> {
+    return this.filmesService.updateOneFilme(id, updateFilme)
   }
 }

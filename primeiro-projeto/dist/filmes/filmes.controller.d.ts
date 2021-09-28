@@ -4,8 +4,9 @@ import { Filme } from '.prisma/client';
 export declare class FilmesController {
     private filmesService;
     constructor(filmesService: FilmesService);
-    index(): Promise<Filme[]>;
-    getById(id: number): Promise<Filme>;
+    findMany(): Promise<Filme[]>;
     create(createFilme: CreateFilmeDto): Promise<Filme>;
-    Delete(id: number): Promise<any>;
+    delete(id: string): Promise<Filme>;
+    deleteMany(): Promise<import(".prisma/client").Prisma.BatchPayload>;
+    update(updateFilme: CreateFilmeDto, id: number): Promise<Filme>;
 }

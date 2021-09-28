@@ -16,25 +16,7 @@ let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
-    getAll() {
-        return this.appService.getAll();
-    }
-    getName() {
-        return this.appService.getName();
-    }
 };
-__decorate([
-    (0, common_1.Get)('/filmes'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getAll", null);
-__decorate([
-    (0, common_1.Get)('/name'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getName", null);
 AppController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [app_service_1.AppService])

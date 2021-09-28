@@ -14,15 +14,28 @@ export class FilmesService {
     return this.prisma.filme.findMany();
   }
 
-  async getById(id: number) {
-    return this.filme.getById(id).exec();
-  }
+  // async getById(id: number) {
+  //   return this.filme.getById(id).exec();
+  // }
    // data virou Prisma.FilmeCreateInput? de onde veio FilmeCreateInput?
   async createFilme(data: Prisma.FilmeCreateInput): Promise<Filme> {
     return this.prisma.filme.create({ data });
   }
 
-  async delete(id: number) {
-    return this.filme.deleteOne(id);
+  async deleteOneFilme(where: Prisma.FilmeWhereUniqueInput): Promise<Filme> {
+    return this.prisma.filme.delete({ where });
+  }
+
+  async deletAllFilmes() {
+    return this.prisma.filme.deleteMany()
+  }
+
+  async updateOneFilme(filmeId: number, data: Prisma.FilmeCreateInput): Promise<Filme> {
+    return this.prisma.filme.update({
+      data,
+      where: {
+        id: filmeId
+      }
+    })
   }
 }

@@ -1,10 +1,12 @@
-import { Filme, Prisma } from '@prisma/client';
+import { Filme, Prisma } from '.prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 export declare class FilmesService {
     private prisma;
+    filme: any;
     constructor(prisma: PrismaService);
     getAll(): Promise<Filme[]>;
-    getById(id: number): Promise<any>;
     createFilme(data: Prisma.FilmeCreateInput): Promise<Filme>;
-    delete(id: number): Promise<any>;
+    deleteOneFilme(where: Prisma.FilmeWhereUniqueInput): Promise<Filme>;
+    deletAllFilmes(): Promise<Prisma.BatchPayload>;
+    updateOneFilme(filmeId: number, data: Prisma.FilmeCreateInput): Promise<Filme>;
 }
