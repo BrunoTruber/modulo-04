@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { ValidationPipe} from '@nestjs/common'
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
@@ -10,9 +11,9 @@ async function bootstrap() {
     new ValidationPipe({
       transform: true,
       whitelist: true,
-      forbidNonWhitelisted: true
+      forbidNonWhitelisted: true,
     })
-  )
+  );
 
   await app.listen(3000);
 }

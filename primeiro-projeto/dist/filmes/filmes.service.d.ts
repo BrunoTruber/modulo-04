@@ -9,4 +9,5 @@ export declare class FilmesService {
     deleteOneFilme(where: Prisma.FilmeWhereUniqueInput): Promise<Filme>;
     deletAllFilmes(): Promise<Prisma.BatchPayload>;
     updateOneFilme(filmeId: number, data: Prisma.FilmeCreateInput): Promise<Filme>;
+    getOneFilme(filmeId: number): Promise<Filme>;
 }

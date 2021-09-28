@@ -45,4 +45,10 @@ export class FilmesController {// filmesService virou FilmesService?
   ): Promise<Filme> {
     return this.filmesService.updateOneFilme(id, updateFilme)
   }
+
+  @Get('list/:id')
+  @UsePipes(ValidationPipe)
+  async findUnique(@Param('id', ParseIntPipe) id: number) {
+    return this.filmesService.getOneFilme(id)
+  }
 }

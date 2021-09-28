@@ -36,6 +36,13 @@ let FilmesService = class FilmesService {
             }
         });
     }
+    async getOneFilme(filmeId) {
+        return this.prisma.filme.findUnique({
+            where: {
+                id: filmeId
+            }
+        });
+    }
 };
 FilmesService = __decorate([
     (0, common_1.Injectable)(),

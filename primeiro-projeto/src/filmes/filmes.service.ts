@@ -38,4 +38,11 @@ export class FilmesService {
       }
     })
   }
+  async getOneFilme(filmeId: number): Promise<Filme> {
+    return this.prisma.filme.findUnique({
+      where: {
+        id: filmeId,
+      }
+    })
+  }
 }
