@@ -37,7 +37,7 @@ export class FilmesController {// filmesService virou FilmesService?
     return this.filmesService.deletAllFilmes()
   }
 
-  @Put('update/:id')
+  @Put('/update/:id')
   @UsePipes(ValidationPipe)
   async update(
     @Body() updateFilme: CreateFilmeDto,
@@ -46,7 +46,7 @@ export class FilmesController {// filmesService virou FilmesService?
     return this.filmesService.updateOneFilme(id, updateFilme)
   }
 
-  @Get('list/:id')
+  @Get('/list/:id')
   @UsePipes(ValidationPipe)
   async findUnique(@Param('id', ParseIntPipe) id: number) {
     return this.filmesService.getOneFilme(id)

@@ -34,7 +34,7 @@ export class FilmesService {
     return this.prisma.filme.update({
       data,
       where: {
-        id: filmeId
+        id: filmeId,
       }
     })
   }
