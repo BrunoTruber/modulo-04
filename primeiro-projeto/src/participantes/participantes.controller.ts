@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from '@nestjs/common';
-  import { CreateParticipanteDto } from './dto/create-participantes.dto';
-  import { ParticipantesService } from './participantes.service';
-  import { Participante } from '.prisma/client';
+import { CreateParticipanteDto } from './dto/create-participantes.dto';
+import { ParticipantesService } from './participantes.service';
+import { Participante } from '.prisma/client';
   
   @Controller('participantes')
   export class ParticipantesController {

@@ -21,6 +21,7 @@ export class FilmesController {// filmesService virou FilmesService?
 
   @Post('/create')// createFilme virou CreateFilmeDto? oque é esse @Body()?
   @UsePipes(ValidationPipe)
+  //Oque o @Body() esta fazendo? createFilme é do tipo CreateFilmeDto / Promise<Filme> tras um filme
   async create(@Body() createFilme: CreateFilmeDto): Promise<Filme> {//oque essa promise esta fazendo? 
     return this.filmesService.createFilme(createFilme);
   }
