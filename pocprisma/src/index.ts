@@ -9,15 +9,18 @@ async function main() {
             name: 'John3',
             email: 'teste',
             groups: {
-              connectOrCreate:{
+              connectOrCreate:[
+                  {
                   where: {
                       id: 'group3'
                   },
                   create: {
                       id: 'group3',
                       title: 'testete'
-                }
-            }
+                },
+                // se eu quiser adicionar mais grupos
+               },
+            ]
           }
         }
     })
