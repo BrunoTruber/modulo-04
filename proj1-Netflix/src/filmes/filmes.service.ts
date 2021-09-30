@@ -14,9 +14,6 @@ export class FilmesService {
     return this.prisma.filme.findMany();
   }
 
-  // async getById(id: number) {
-  //   return this.filme.getById(id).exec();
-  // }
    // data virou Prisma.FilmeCreateInput? de onde veio FilmeCreateInput?
   async createFilme(data: Prisma.FilmeCreateInput): Promise<Filme> {
     return this.prisma.filme.create({ data });

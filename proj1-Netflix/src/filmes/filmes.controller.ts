@@ -14,11 +14,6 @@ export class FilmesController {// filmesService virou FilmesService?
     return this.filmesService.getAll();
   }
 
-  // @Get(':id') //(@Param('id') id: number) busca e referencia o id que esta neste getById(id)?
-  // async  getById(@Param('id') id: number) : Promise<Filme> {
-  //   return this.filmesService.getById(id);
-  // }
-
   @Post('/create')// createFilme virou CreateFilmeDto? oque é esse @Body()?
   @UsePipes(ValidationPipe)
   //Oque o @Body() esta fazendo? createFilme é do tipo CreateFilmeDto / Promise<Filme> tras um filme
