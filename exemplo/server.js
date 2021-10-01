@@ -16,7 +16,7 @@ async function createUser(name, email, groups) {
 
     await Promise.all(
         groups.map(async (item) => {
-            const exist = await prisma.group.findUnique({ wher: { id: item}})
+            const exist = await prisma.group.findUnique({ where: { id: item}})
 
             if (exist) {
                 grouped.push({ id: item });
@@ -36,3 +36,28 @@ async function createUser(name, email, groups) {
         },
     });
 }
+
+app.post('/', async (req, res) => {
+    const record = req.body;
+    createUser(record.name, record.email, record.groups);
+    res.status(201).send(record);
+});
+
+app.get('/', async (req, res) => {
+    const record = await prisma.user.findMany();
+    res.status(200).send(record);
+});
+
+// app.get('/:id', async (req, res) => {
+//     const record = await prisma.user.findUnique(id);
+//     res.status(201).send(record);
+// });
+
+app.delete('/', async (req, res) => {
+    const record = await prisma.user.deleteMany();
+    res.status(201).send(record);
+});
+
+const server = app.listen(PORT, () => {
+    console.log(`listening on port${PORT}`);
+});
