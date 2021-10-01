@@ -9,44 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FilmesService = void 0;
+exports.ParticipantesService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
-let FilmesService = class FilmesService {
+let ParticipantesService = class ParticipantesService {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    async getAll() {
-        return this.prisma.filme.findMany();
-    }
-    async createFilme(data) {
-        return this.prisma.filme.create({ data });
-    }
-    async deleteOneFilme(where) {
-        return this.prisma.filme.delete({ where });
-    }
-    async deletAllFilmes() {
-        return this.prisma.filme.deleteMany();
-    }
-    async updateOneFilme(filmeId, data) {
-        return this.prisma.filme.update({
+    async createParticipante(data) {
+        return this.prisma.participante.create({
             data,
-            where: {
-                id: filmeId,
-            }
         });
     }
-    async getOneFilme(filmeId) {
-        return this.prisma.filme.findUnique({
-            where: {
-                id: filmeId,
-            }
-        });
+    async getAll() {
+        return this.prisma.participante.findMany();
     }
 };
-FilmesService = __decorate([
+ParticipantesService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService])
-], FilmesService);
-exports.FilmesService = FilmesService;
-//# sourceMappingURL=filmes.service.js.map
+], ParticipantesService);
+exports.ParticipantesService = ParticipantesService;
+//# sourceMappingURL=participantes.service.js.map

@@ -6,27 +6,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PrismaService = void 0;
+exports.GeneroModule = void 0;
 const common_1 = require("@nestjs/common");
-const client_1 = require("@prisma/client");
-let PrismaService = class PrismaService extends client_1.PrismaClient {
-    get participante() {
-        return this._participante;
-    }
-    set participante(value) {
-        this._participante = value;
-    }
-    async onModuleInit() {
-        await this.$connect();
-    }
-    async enableShutdownHooks(app) {
-        this.$on('beforeExit', async () => {
-            await app.close();
-        });
-    }
+let GeneroModule = class GeneroModule {
 };
-PrismaService = __decorate([
-    (0, common_1.Injectable)()
-], PrismaService);
-exports.PrismaService = PrismaService;
-//# sourceMappingURL=prisma.service.js.map
+GeneroModule = __decorate([
+    (0, common_1.Module)({})
+], GeneroModule);
+exports.GeneroModule = GeneroModule;
+//# sourceMappingURL=genero.module.js.map

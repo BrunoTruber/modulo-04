@@ -35,6 +35,9 @@ let FilmesController = class FilmesController {
     async update(updateFilme, id) {
         return this.filmesService.updateOneFilme(id, updateFilme);
     }
+    async findUnique(id) {
+        return this.filmesService.getOneFilme(id);
+    }
 };
 __decorate([
     (0, common_1.Get)('/list'),
@@ -67,7 +70,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], FilmesController.prototype, "deleteMany", null);
 __decorate([
-    (0, common_1.Put)('update/:id'),
+    (0, common_1.Put)('/update/:id'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
@@ -75,6 +78,14 @@ __decorate([
     __metadata("design:paramtypes", [create_filme_dto_1.CreateFilmeDto, Number]),
     __metadata("design:returntype", Promise)
 ], FilmesController.prototype, "update", null);
+__decorate([
+    (0, common_1.Get)('/list/:id'),
+    (0, common_1.UsePipes)(common_1.ValidationPipe),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], FilmesController.prototype, "findUnique", null);
 FilmesController = __decorate([
     (0, common_1.Controller)('filmes'),
     __metadata("design:paramtypes", [filmes_service_1.FilmesService])
