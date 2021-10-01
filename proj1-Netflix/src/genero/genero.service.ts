@@ -9,11 +9,11 @@ export class GeneroService {
     genero: any;
     constructor(private prisma: PrismaService) { }
 
-    async getAll(): Promise<Genero[]> { // o que essa promise esta fazendo? porque Filme tem [] no final?
+    async getAll(): Promise<Genero[]> {
       return this.prisma.genero.findMany();
     }
   
-     // data virou Prisma.FilmeCreateInput? de onde veio FilmeCreateInput?
+  
     async createGenero(data: Prisma.GeneroCreateInput): Promise<Genero> {
       return this.prisma.genero.create({ data });
     }

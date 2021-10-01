@@ -28,7 +28,7 @@ async function main() {
             },
             create: {
               id: 'group2',
-              title: 'Eu amo Goiás',
+              title: 'Eu odeio o Prisma',
             },
           },
           {

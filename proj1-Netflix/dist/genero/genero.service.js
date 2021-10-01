@@ -9,46 +9,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ParticipantesService = void 0;
+exports.GeneroService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
-let ParticipantesService = class ParticipantesService {
+let GeneroService = class GeneroService {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    async createParticipante(data) {
-        return this.prisma.participante.create({
-            data,
-        });
-    }
     async getAll() {
-        return this.prisma.participante.findMany();
+        return this.prisma.genero.findMany();
     }
-    async deleteOneParticipante(where) {
-        return this.prisma.participante.delete({ where });
+    async createGenero(data) {
+        return this.prisma.genero.create({ data });
     }
-    async deletAllParticipantes() {
-        return this.prisma.participante.deleteMany();
+    async deleteOneGenero(where) {
+        return this.prisma.genero.delete({ where });
     }
-    async updateOneParticipante(participanteId, data) {
-        return this.prisma.participante.update({
+    async deletAllGeneros() {
+        return this.prisma.genero.deleteMany();
+    }
+    async updateOneGenero(generoId, data) {
+        return this.prisma.genero.update({
             data,
             where: {
-                id: participanteId,
+                id: generoId,
             }
         });
     }
-    async getOneParticipante(participanteId) {
-        return this.prisma.participante.findUnique({
+    async getOneGenero(generoId) {
+        return this.prisma.genero.findUnique({
             where: {
-                id: participanteId,
+                id: generoId,
             }
         });
     }
 };
-ParticipantesService = __decorate([
+GeneroService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService])
-], ParticipantesService);
-exports.ParticipantesService = ParticipantesService;
-//# sourceMappingURL=participantes.service.js.map
+], GeneroService);
+exports.GeneroService = GeneroService;
+//# sourceMappingURL=genero.service.js.map

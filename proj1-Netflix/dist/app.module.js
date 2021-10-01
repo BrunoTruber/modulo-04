@@ -13,11 +13,12 @@ const app_service_1 = require("./app.service");
 const filmes_module_1 = require("./filmes/filmes.module");
 const prisma_module_1 = require("./prisma/prisma.module");
 const participantes_module_1 = require("./participantes/participantes.module");
+const genero_module_1 = require("./genero/genero.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [filmes_module_1.FilmesModule, prisma_module_1.PrismaModule, participantes_module_1.ParticipantesModule,],
+        imports: [filmes_module_1.FilmesModule, prisma_module_1.PrismaModule, participantes_module_1.ParticipantesModule, genero_module_1.GeneroModule,],
         controllers: [app_controller_1.AppController,],
         providers: [app_service_1.AppService],
     })

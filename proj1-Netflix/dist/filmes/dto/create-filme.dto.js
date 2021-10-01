@@ -21,5 +21,13 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreateFilmeDto.prototype, "imagem", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", Number)
+], CreateFilmeDto.prototype, "data_lancamento", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", Number)
+], CreateFilmeDto.prototype, "tempo_duracao", void 0);
 exports.CreateFilmeDto = CreateFilmeDto;
 //# sourceMappingURL=create-filme.dto.js.map

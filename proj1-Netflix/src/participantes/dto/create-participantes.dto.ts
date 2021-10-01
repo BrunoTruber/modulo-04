@@ -1,12 +1,12 @@
 /* eslint-disable prettier/prettier */
-import { IsNotEmpty, IsOptional } from 'class-validator'
+import { IsNotEmpty } from 'class-validator'
 
 export class CreateParticipanteDto {
   @IsNotEmpty()
   nome: string;
 
-  @IsOptional()
-  filmeId: number;  
+ // @IsOptional()
+  //filmeId: number;  
 
   @IsNotEmpty()
   imagem: string;

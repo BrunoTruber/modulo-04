@@ -2,22 +2,22 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CreateGeneroDto } from './dto/create-genero.dto';
 import { GeneroService } from './genero.service';
-import { Genero } from '.prisma/client';
+import { Genero } from '.prisma/client'
 
 @Controller('genero')
 export class GeneroController {
     constructor(private generoService: GeneroService) {}
 
-    @Get('/list') //o que o método index esta fazendo? oque a promise esta fazendo?
+    @Get('/list') 
     @UsePipes(ValidationPipe)
-    async findMany():Promise<Genero[]> {// esse ':' faz o que?
+    async findMany():Promise<Genero[]> {
       return this.generoService.getAll();
     }
   
-    @Post('/create')// createFilme virou CreateFilmeDto? oque é esse @Body()?
+    @Post('/create')
     @UsePipes(ValidationPipe)
-    //Oque o @Body() esta fazendo? createFilme é do tipo CreateFilmeDto / Promise<Filme> tras um filme
-    async create(@Body() createGenero: CreateGeneroDto): Promise<Genero> {//oque essa promise esta fazendo? 
+  
+    async create(@Body() createGenero: CreateGeneroDto): Promise<Genero> {
       return this.generoService.createGenero(createGenero);
     }
   

@@ -9,25 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateParticipanteDto = void 0;
+exports.CreateGeneroDto = void 0;
 const class_validator_1 = require("class-validator");
-class CreateParticipanteDto {
+class CreateGeneroDto {
 }
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], CreateParticipanteDto.prototype, "nome", void 0);
-__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], CreateParticipanteDto.prototype, "imagem", void 0);
-__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", Number)
-], CreateParticipanteDto.prototype, "data_nascimento", void 0);
-__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], CreateParticipanteDto.prototype, "staff", void 0);
-exports.CreateParticipanteDto = CreateParticipanteDto;
-//# sourceMappingURL=create-participantes.dto.js.map
+], CreateGeneroDto.prototype, "nome", void 0);
+exports.CreateGeneroDto = CreateGeneroDto;
+//# sourceMappingURL=create-genero.dto.js.map

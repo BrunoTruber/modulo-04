@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
-import { IsNotEmpty, IsOptional } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 export class CreateGeneroDto {
   @IsNotEmpty()
   nome: string;
 
-  @IsOptional()
-  generoId: number;
+ // @IsOptional()
+  //generoId: number;
 }

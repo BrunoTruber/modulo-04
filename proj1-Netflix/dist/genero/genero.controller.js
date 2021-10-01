@@ -12,48 +12,48 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ParticipantesController = void 0;
+exports.GeneroController = void 0;
 const common_1 = require("@nestjs/common");
-const create_participantes_dto_1 = require("./dto/create-participantes.dto");
-const participantes_service_1 = require("./participantes.service");
-let ParticipantesController = class ParticipantesController {
-    constructor(participantesService) {
-        this.participantesService = participantesService;
-    }
-    async create(createParticipante) {
-        return this.participantesService.createParticipante(createParticipante);
+const create_genero_dto_1 = require("./dto/create-genero.dto");
+const genero_service_1 = require("./genero.service");
+let GeneroController = class GeneroController {
+    constructor(generoService) {
+        this.generoService = generoService;
     }
     async findMany() {
-        return this.participantesService.getAll();
+        return this.generoService.getAll();
+    }
+    async create(createGenero) {
+        return this.generoService.createGenero(createGenero);
     }
     async delete(id) {
-        return this.participantesService.deleteOneParticipante({ id: Number(id) });
+        return this.generoService.deleteOneGenero({ id: Number(id) });
     }
     async deleteMany() {
-        return this.participantesService.deletAllParticipantes();
+        return this.generoService.deletAllGeneros();
     }
-    async update(updateParticipante, id) {
-        return this.participantesService.updateOneParticipante(id, updateParticipante);
+    async update(updateGenero, id) {
+        return this.generoService.updateOneGenero(id, updateGenero);
     }
     async findUnique(id) {
-        return this.participantesService.getOneParticipante(id);
+        return this.generoService.getOneGenero(id);
     }
 };
-__decorate([
-    (0, common_1.Post)('/create'),
-    (0, common_1.UsePipes)(common_1.ValidationPipe),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_participantes_dto_1.CreateParticipanteDto]),
-    __metadata("design:returntype", Promise)
-], ParticipantesController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)('/list'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
-], ParticipantesController.prototype, "findMany", null);
+], GeneroController.prototype, "findMany", null);
+__decorate([
+    (0, common_1.Post)('/create'),
+    (0, common_1.UsePipes)(common_1.ValidationPipe),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_genero_dto_1.CreateGeneroDto]),
+    __metadata("design:returntype", Promise)
+], GeneroController.prototype, "create", null);
 __decorate([
     (0, common_1.Delete)('/delete/:id'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
@@ -61,23 +61,23 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
-], ParticipantesController.prototype, "delete", null);
+], GeneroController.prototype, "delete", null);
 __decorate([
     (0, common_1.Delete)('/delete'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
-], ParticipantesController.prototype, "deleteMany", null);
+], GeneroController.prototype, "deleteMany", null);
 __decorate([
     (0, common_1.Put)('/update/:id'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_participantes_dto_1.CreateParticipanteDto, Number]),
+    __metadata("design:paramtypes", [create_genero_dto_1.CreateGeneroDto, Number]),
     __metadata("design:returntype", Promise)
-], ParticipantesController.prototype, "update", null);
+], GeneroController.prototype, "update", null);
 __decorate([
     (0, common_1.Get)('/list/:id'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
@@ -85,10 +85,10 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
-], ParticipantesController.prototype, "findUnique", null);
-ParticipantesController = __decorate([
-    (0, common_1.Controller)('participantes'),
-    __metadata("design:paramtypes", [participantes_service_1.ParticipantesService])
-], ParticipantesController);
-exports.ParticipantesController = ParticipantesController;
-//# sourceMappingURL=participantes.controller.js.map
+], GeneroController.prototype, "findUnique", null);
+GeneroController = __decorate([
+    (0, common_1.Controller)('genero'),
+    __metadata("design:paramtypes", [genero_service_1.GeneroService])
+], GeneroController);
+exports.GeneroController = GeneroController;
+//# sourceMappingURL=genero.controller.js.map
