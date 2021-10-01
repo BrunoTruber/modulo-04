@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { Filme, Prisma } from '.prisma/client';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from 'src/prisma/prisma.service'; 
 
 @Injectable()//oque esse Injectable esta fazendo?
 export class FilmesService {
