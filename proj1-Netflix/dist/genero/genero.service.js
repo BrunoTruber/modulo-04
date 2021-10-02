@@ -33,14 +33,14 @@ let GeneroService = class GeneroService {
             data,
             where: {
                 id: generoId,
-            }
+            },
         });
     }
     async getOneGenero(generoId) {
         return this.prisma.genero.findUnique({
             where: {
                 id: generoId,
-            }
+            },
         });
     }
 };

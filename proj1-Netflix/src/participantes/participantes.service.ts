@@ -5,46 +5,60 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Participante, Prisma } from '.prisma/client';
 
-
 @Injectable()
 export class ParticipantesService {
-  participante: any;
 
   constructor(private prisma: PrismaService) {}
 
   async createParticipante(
     data: Prisma.ParticipanteCreateInput,
+
   ): Promise<Participante> {
-    return this.prisma.participante.create({
-      data,
+    return this.prisma.participante.create({createParticipante
+      // data:{
+      // nome,
+      // imagem,
+      // data_nascimento,
+      // staff,
+      // filmes: {
+      //   connect: {
+      //     id: [2]
+      //   },
+      // },
+      // }
     });
   }
 
   async getAll(): Promise<Participante[]> {
-    return this.prisma.participante.findMany(); 
+    return this.prisma.participante.findMany();
   }
 
-  async deleteOneParticipante(where: Prisma.ParticipanteWhereUniqueInput): Promise<Participante> {
+  async deleteOneParticipante(
+    where: Prisma.ParticipanteWhereUniqueInput,
+  ): Promise<Participante> {
     return this.prisma.participante.delete({ where });
   }
 
   async deletAllParticipantes() {
-    return this.prisma.participante.deleteMany()
+    return this.prisma.participante.deleteMany();
   }
 
-  async updateOneParticipante(participanteId: number, data: Prisma.ParticipanteCreateInput): Promise<Participante> {
+  async updateOneParticipante(
+    participanteId: number,
+    data: Prisma.ParticipanteCreateInput,
+  ): Promise<Participante> {
     return this.prisma.participante.update({
       data,
       where: {
         id: participanteId,
-      }
-    })
+      },
+    });
   }
   async getOneParticipante(participanteId: number): Promise<Participante> {
     return this.prisma.participante.findUnique({
       where: {
         id: participanteId,
-      }
-    })
+      },
+    });
   }
 }

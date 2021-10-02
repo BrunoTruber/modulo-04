@@ -7,12 +7,9 @@ import { PrismaModule } from './prisma/prisma.module';
 import { ParticipantesModule } from './participantes/participantes.module';
 import { GeneroModule } from './genero/genero.module';
 
-
-
-
 @Module({
-  imports: [FilmesModule, PrismaModule, ParticipantesModule, GeneroModule,],
-  controllers: [AppController,],
+  imports: [FilmesModule, PrismaModule, ParticipantesModule, GeneroModule],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

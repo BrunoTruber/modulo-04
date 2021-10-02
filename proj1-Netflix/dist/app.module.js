@@ -18,8 +18,8 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [filmes_module_1.FilmesModule, prisma_module_1.PrismaModule, participantes_module_1.ParticipantesModule, genero_module_1.GeneroModule,],
-        controllers: [app_controller_1.AppController,],
+        imports: [filmes_module_1.FilmesModule, prisma_module_1.PrismaModule, participantes_module_1.ParticipantesModule, genero_module_1.GeneroModule],
+        controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
 ], AppModule);

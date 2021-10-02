@@ -18,7 +18,17 @@ let ParticipantesService = class ParticipantesService {
     }
     async createParticipante(data) {
         return this.prisma.participante.create({
-            data,
+            data: {
+                nome,
+                imagem,
+                data_nascimento,
+                staff,
+                filmes: {
+                    connect: {
+                        id: [2]
+                    },
+                },
+            }
         });
     }
     async getAll() {
@@ -35,14 +45,14 @@ let ParticipantesService = class ParticipantesService {
             data,
             where: {
                 id: participanteId,
-            }
+            },
         });
     }
     async getOneParticipante(participanteId) {
         return this.prisma.participante.findUnique({
             where: {
                 id: participanteId,
-            }
+            },
         });
     }
 };

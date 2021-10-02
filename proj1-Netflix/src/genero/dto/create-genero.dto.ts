@@ -5,6 +5,6 @@ export class CreateGeneroDto {
   @IsNotEmpty()
   nome: string;
 
- // @IsOptional()
+  // @IsOptional()
   //generoId: number;
 }

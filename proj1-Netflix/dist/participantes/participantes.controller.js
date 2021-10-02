@@ -21,7 +21,7 @@ let ParticipantesController = class ParticipantesController {
         this.participantesService = participantesService;
     }
     async create(createParticipante) {
-        return this.participantesService.createParticipante(createParticipante);
+        return this.participantesService.createParticipante({ createParticipante });
     }
     async findMany() {
         return this.participantesService.getAll();

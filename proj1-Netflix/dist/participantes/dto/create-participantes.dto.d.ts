@@ -3,4 +3,5 @@ export declare class CreateParticipanteDto {
     imagem: string;
     data_nascimento: number;
     staff: string;
+    filmes: number[];
 }

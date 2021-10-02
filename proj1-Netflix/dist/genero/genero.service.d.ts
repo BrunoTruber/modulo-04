@@ -2,7 +2,6 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { Prisma, Genero } from '.prisma/client';
 export declare class GeneroService {
     private prisma;
-    genero: any;
     constructor(prisma: PrismaService);
     getAll(): Promise<Genero[]>;
     createGenero(data: Prisma.GeneroCreateInput): Promise<Genero>;

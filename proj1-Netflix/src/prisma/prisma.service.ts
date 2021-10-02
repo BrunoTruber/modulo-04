@@ -4,9 +4,6 @@ import { PrismaClient } from '@prisma/client';
 
 @Injectable() //oque esse Injectable esta fazendo?
 export class PrismaService extends PrismaClient implements OnModuleInit {
-  participantes: any;
-  //genero: any;
-  
   async onModuleInit() {
     await this.$connect();
   }

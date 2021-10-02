@@ -33,14 +33,14 @@ let FilmesService = class FilmesService {
             data,
             where: {
                 id: filmeId,
-            }
+            },
         });
     }
     async getOneFilme(filmeId) {
         return this.prisma.filme.findUnique({
             where: {
                 id: filmeId,
-            }
+            },
         });
     }
 };
