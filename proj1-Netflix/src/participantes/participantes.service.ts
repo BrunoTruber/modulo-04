@@ -14,7 +14,7 @@ export class ParticipantesService {
     data: Prisma.ParticipanteCreateInput,
 
   ): Promise<Participante> {
-    return this.prisma.participante.create({createParticipante
+    return this.prisma.participante.create({ data
       // data:{
       // nome,
       // imagem,

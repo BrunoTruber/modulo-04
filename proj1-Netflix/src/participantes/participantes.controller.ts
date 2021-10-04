@@ -21,12 +21,10 @@ export class ParticipantesController {
 
   @Post('/create')
   @UsePipes(ValidationPipe)
-  async create(
-    @Body() createParticipante: CreateParticipanteDto,
-  ): Promise<Participante> {
+  async create(@Body() createParticipante: CreateParticipanteDto): Promise<Participante> {
     // const { nome, filmeId, imagem, data_nascimento, staff, filmes } =
     //   createParticipante;
-    return this.participantesService.createParticipante({createParticipante});
+       return this.participantesService.createParticipante(createParticipante);
       // nome,
       // imagem,
       // data_nascimento,
@@ -62,10 +60,7 @@ export class ParticipantesController {
     @Body() updateParticipante: CreateParticipanteDto,
     @Param('id', ParseIntPipe) id: number,
   ): Promise<Participante> {
-    return this.participantesService.updateOneParticipante(
-      id,
-      updateParticipante,
-    );
+    return this.participantesService.updateOneParticipante(id, updateParticipante );
   }
 
   @Get('/list/:id')
