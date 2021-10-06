@@ -3,7 +3,7 @@ import {
   NotFoundException,
   ConflictException,
 } from '@nestjs/common';
-import { User, Prisma } from '@prisma/client';
+import { user, Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma.service';
 import * as bcrypt from 'bcrypt';
 
@@ -11,7 +11,7 @@ import * as bcrypt from 'bcrypt';
 export class UsersService {
   constructor(private db: PrismaService) {}
 
-  async findUnique(username: string): Promise<User> {
+  async findUnique(username: string): Promise<user> {
     const user = await this.db.user.findUnique({
       where: { username },
     });
@@ -23,7 +23,7 @@ export class UsersService {
     return user;
   }
 
-  async create(data: Prisma.UserCreateInput): Promise<User> {
+  async create(data: Prisma.userCreateInput): Promise<user> {
     const existing = await this.db.user.findUnique({
       where: { username: data.username },
     });

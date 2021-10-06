@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model user {
   username    String @id
   password    String
   displayName String
