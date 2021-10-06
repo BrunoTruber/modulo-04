@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma.service");
-const bcrypt_1 = require("bcrypt");
+const bcrypt = require("bcrypt");
 let UsersService = class UsersService {
     constructor(db) {
         this.db = db;
@@ -28,12 +28,12 @@ let UsersService = class UsersService {
     }
     async create(data) {
         const existing = await this.db.user.findUnique({
-            where: { username: data.username }
+            where: { username: data.username },
         });
         if (existing) {
-            throw new common_1.ConflictException('username lready exists');
+            throw new common_1.ConflictException('username already exists');
         }
-        const hashedPassword = await bcrypt_1.default.hash(data.password, 10);
+        const hashedPassword = await bcrypt.hash(data.password, 10);
         const user = await this.db.user.create({
             data: Object.assign(Object.assign({}, data), { password: hashedPassword }),
         });
