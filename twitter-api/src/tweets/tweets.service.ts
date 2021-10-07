@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { Tweet } from '@prisma/client';
-import { PostTweetDto } from './tweets.dto';
+import { PostTweetDto } from './dto/create-tweets.dto';
 
 @Injectable()
 export class TweetsService {

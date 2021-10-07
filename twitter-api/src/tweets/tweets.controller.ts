@@ -12,7 +12,7 @@ import {
 import { Tweet, User } from '@prisma/client';
 import { AuthGuard } from '@nestjs/passport';
 import AuthUser from '../common/decorators/auth-user.decorator';
-import { PostTweetDto } from './tweets.dto';
+import { PostTweetDto } from './dto/create-tweets.dto';
 import { TweetsService } from './tweets.service';
 
 @UseGuards(AuthGuard('jwt'))
