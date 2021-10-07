@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Post, Param, UseGuards} from '@nestjs/common';
+import { Body, Controller, Get, Post, Param, UseGuards, UsePipes, ValidationPipe, Delete} from '@nestjs/common';
 import { User } from '.prisma/client';
 import { CreateUsersDto } from './users.dto';
 import { UsersService } from './users.service';
@@ -15,8 +15,14 @@ export class UsersController {
     return this.service.findUnique(username);
   }
 
-  @Post()
+  @Post('/create')
   create(@Body() data: CreateUsersDto): Promise<User> {
     return this.service.create(data);
+  }
+
+  @Delete('/delete/:username')
+  @UsePipes(ValidationPipe)
+  async delete(@Param('username') username: string) {
+    return this.service.deleteOneUser({ username: String(username) });
   }
 }

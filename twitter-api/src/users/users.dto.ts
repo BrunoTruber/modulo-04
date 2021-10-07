@@ -17,11 +17,11 @@ export class CreateUsersDto {
 
   bio: string;
 
-  nascimento: number;
+  nascimento: string;
 
-  criado_em: number;
+  criado_em: string;
 
-  modificado_em: number;
+  modificado_em: string;
 
   seguidores: number[];
 
