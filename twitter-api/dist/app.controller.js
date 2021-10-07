@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("./app.service");
+const simple_guard_1 = require("./auth/simple.guard");
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
@@ -21,7 +22,8 @@ let AppController = class AppController {
     }
 };
 __decorate([
-    (0, common_1.Get)(),
+    (0, common_1.UseGuards)(simple_guard_1.SimpleGuard),
+    (0, common_1.Get)('hello'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)

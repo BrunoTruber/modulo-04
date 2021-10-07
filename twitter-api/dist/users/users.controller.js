@@ -16,6 +16,7 @@ exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
 const users_dto_1 = require("./users.dto");
 const users_service_1 = require("./users.service");
+const passport_1 = require("@nestjs/passport");
 let UsersController = class UsersController {
     constructor(service) {
         this.service = service;
@@ -42,6 +43,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "create", null);
 UsersController = __decorate([
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])
 ], UsersController);

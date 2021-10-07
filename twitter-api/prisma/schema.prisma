@@ -7,8 +7,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model user {
+model User {
   username    String @id
   password    String
   displayName String
+  imagem String
+  bio String
+  nascimento DateTime
+  criado_em DateTime @default(now())
+  modificado_em DateTime @default(now())
+  seguidores Seguidores[]
+  seguindo Seguindo[]
+  tweet Tweet[]
+}
+
+model Tweet {
+  id  Int      @id @default(autoincrement())
+  content String
+  emoji String
+  createdAt DateTime @default(now())
+  curtidas Int 
+  user User []
+}
+
+model Seguindo {
+  id Int @id @default(autoincrement())
+  idSeguindo Int 
+  user User []
+}
+
+model Seguidores {
+  id Int @id @default(autoincrement())
+  idSeguidor Int 
+  user User []
 }
