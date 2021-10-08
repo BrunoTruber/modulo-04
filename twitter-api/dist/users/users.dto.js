@@ -28,5 +28,25 @@ __decorate([
     (0, class_validator_1.Length)(2, 50),
     __metadata("design:type", String)
 ], CreateUsersDto.prototype, "displayName", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateUsersDto.prototype, "imagem", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateUsersDto.prototype, "bio", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateUsersDto.prototype, "nascimento", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateUsersDto.prototype, "criado_em", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateUsersDto.prototype, "modificado_em", void 0);
 exports.CreateUsersDto = CreateUsersDto;
 //# sourceMappingURL=users.dto.js.map

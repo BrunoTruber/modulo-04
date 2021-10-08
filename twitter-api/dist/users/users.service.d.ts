@@ -1,8 +1,10 @@
-import { user, Prisma } from '@prisma/client';
+import { User, Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma.service';
 export declare class UsersService {
     private db;
     constructor(db: PrismaService);
-    findUnique(username: string): Promise<user>;
-    create(data: Prisma.userCreateInput): Promise<user>;
+    findMany(): Promise<User[]>;
+    findUnique(username: string): Promise<User>;
+    create(data: Prisma.UserCreateInput): Promise<User>;
+    deleteOneUser(where: Prisma.UserWhereUniqueInput): Promise<User>;
 }

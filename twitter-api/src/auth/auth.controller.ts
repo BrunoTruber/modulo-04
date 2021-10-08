@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Post, Body, Get, UseGuards } from '@nestjs/common';
-import { user} from '@prisma/client';
+import { User} from '@prisma/client';
 import { AuthGuard } from '@nestjs/passport'
 import { AuthService } from './auth.service';
 import { LoginDto, AuthResponse } from './auth.dto';
@@ -17,7 +17,7 @@ export class AuthController {
 
   @UseGuards(AuthGuard('jwt'))
   @Get('me')
-  me(@AuthUser() user: user): user {
+  me(@AuthUser() user: User): User {
     return user;
   }
 }

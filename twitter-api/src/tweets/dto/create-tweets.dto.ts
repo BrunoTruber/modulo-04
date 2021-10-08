@@ -11,7 +11,7 @@ export class PostTweetDto {
   emoji: string;
 
   @IsDate()
-  createdAt: number;
+  createdAt: string;
 
   @IsNotEmpty()
   curtidas: number;

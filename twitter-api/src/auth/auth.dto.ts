@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { IsString, Length } from 'class-validator';
-import { user } from '.prisma/client';
+import { User } from '.prisma/client';
 
 export class LoginDto {
   @IsString()
@@ -14,5 +14,5 @@ export class LoginDto {
 
 export class AuthResponse {
   token: string;
-  user: user;
+  user: User;
 }

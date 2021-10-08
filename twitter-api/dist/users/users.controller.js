@@ -21,13 +21,25 @@ let UsersController = class UsersController {
     constructor(service) {
         this.service = service;
     }
+    findMany() {
+        return this.service.findMany();
+    }
     findUnique(username) {
         return this.service.findUnique(username);
     }
     create(data) {
         return this.service.create(data);
     }
+    async delete(username) {
+        return this.service.deleteOneUser({ username: String(username) });
+    }
 };
+__decorate([
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "findMany", null);
 __decorate([
     (0, common_1.Get)(':username'),
     __param(0, (0, common_1.Param)('username')),
@@ -36,12 +48,20 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "findUnique", null);
 __decorate([
-    (0, common_1.Post)(),
+    (0, common_1.Post)('/create'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [users_dto_1.CreateUsersDto]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "create", null);
+__decorate([
+    (0, common_1.Delete)('/delete/:username'),
+    (0, common_1.UsePipes)(common_1.ValidationPipe),
+    __param(0, (0, common_1.Param)('username')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "delete", null);
 UsersController = __decorate([
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Controller)('users'),

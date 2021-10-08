@@ -12,7 +12,7 @@ import { PostTweetDto } from './dto/create-tweets.dto';
 export class TweetsService {
   constructor(private db: PrismaService) {}
 
-  async find(username: string): Promise<Tweet[]> {
+  async find(username?: string): Promise<Tweet[]> {
     if (username) {
       const user = await this.db.user.findUnique({
         where: { username },
@@ -31,8 +31,8 @@ export class TweetsService {
     return tweets;
   }
 
-  async findOne(id: number): Promise<Tweet> {
-    const tweet = await this.db.tweet.find({ where: { id } });
+  async findOneTweet(id: number): Promise<Tweet> {
+    const tweet = await this.db.tweet.findUnique({ where: { id } });
 
     if (!tweet) {
       throw new NotFoundException('no tweet found with this id');
@@ -50,17 +50,19 @@ export class TweetsService {
     });
   }
 
-  async delete(username: string, id: number): Promise<Tweet> {
-    const tweet = await this.db.tweet.findOne({ where: { id } });
+  async delete( id: number): Promise<void> {
+    const tweet = await this.db.tweet.findUnique({ where: { id } });
 
     if (!tweet) {
       throw new NotFoundException();
     }
 
-    if (tweet.username !== username) {
+    if (tweet.id !== id) {
       throw new ForbiddenException();
     }
 
     await this.db.tweet.delete({ where: { id } });
+
+  
   }
 }

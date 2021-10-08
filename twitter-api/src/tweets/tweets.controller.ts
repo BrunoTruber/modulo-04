@@ -21,13 +21,13 @@ export class TweetsController {
   constructor(private service: TweetsService) {}
 
   @Get()
-  find(@Query('username') username: string): Promise<Tweet[]> {
+  find(@Query('username') username?: string): Promise<Tweet[]> {
     return this.service.find(username);
   }
 
   @Get(':id')
   findOne(@Param('id') id: number): Promise<Tweet> {
-    return this.service.findOne(id);
+    return this.service.findOneTweet(id);
   }
 
   @Post()
@@ -36,7 +36,7 @@ export class TweetsController {
   }
 
   @Delete(':id')
-  delete(@Param('id') id: number, @AuthUser() user: User): Promise<Tweet> {
+  delete(@Param('id') id: number, @AuthUser() user: User): Promise<void> {
     return this.service.delete(user.username, id);
   }
 }

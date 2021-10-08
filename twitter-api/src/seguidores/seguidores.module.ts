@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { SeguidoresController } from './seguidores.controller';
 import { SeguidoresService } from './seguidores.service';

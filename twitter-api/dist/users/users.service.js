@@ -17,6 +17,9 @@ let UsersService = class UsersService {
     constructor(db) {
         this.db = db;
     }
+    async findMany() {
+        return this.db.user.findMany();
+    }
     async findUnique(username) {
         const user = await this.db.user.findUnique({
             where: { username },
@@ -38,6 +41,9 @@ let UsersService = class UsersService {
             data: Object.assign(Object.assign({}, data), { password: hashedPassword }),
         });
         return user;
+    }
+    async deleteOneUser(where) {
+        return this.db.user.delete({ where });
     }
 };
 UsersService = __decorate([

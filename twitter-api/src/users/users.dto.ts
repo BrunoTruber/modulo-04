@@ -13,18 +13,27 @@ export class CreateUsersDto {
   @Length(2, 50)
   displayName: string;
 
+  @IsString()
   imagem: string;
 
+  @IsString()
   bio: string;
 
+  @IsString()
   nascimento: string;
 
+  @IsString()
   criado_em: string;
 
+  @IsString()
   modificado_em: string;
 
-  seguidores: number[];
+  // @IsNumber()
+  // seguidores: [];
 
-  seguindo: number[];
-  tweet: number[];
+  // @IsNumber()
+  // seguindo: number[];
+
+  // @IsNumber()
+  // tweet: number[];
 }
