@@ -12,13 +12,12 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const users_module_1 = require("./users/users.module");
 const auth_module_1 = require("./auth/auth.module");
-const seguindo_module_1 = require("./seguindo/seguindo.module");
-const seguidores_module_1 = require("./seguidores/seguidores.module");
+const follow_module_1 = require("./follow/follow.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [users_module_1.UsersModule, auth_module_1.AuthModule, seguindo_module_1.SeguindoModule, seguidores_module_1.SeguidoresModule],
+        imports: [users_module_1.UsersModule, auth_module_1.AuthModule, follow_module_1.FollowModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
