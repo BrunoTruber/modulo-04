@@ -36,7 +36,7 @@ export class TweetsController {
   }
 
   @Delete(':id')
-  delete(@Param('id') id: number, @AuthUser() user: User): Promise<void> {
-    return this.service.delete(user.username, id);
+  delete(@Param('id') id: number): Promise<void> {
+    return this.service.delete( id);
   }
 }
