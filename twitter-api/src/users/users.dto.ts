@@ -7,7 +7,7 @@ export class CreateUsersDto {
 
   @IsString()
   @Length(8, 30)
-  password: string;
+  senha: string;
 
   @IsString()
   @Length(2, 50)
@@ -23,17 +23,18 @@ export class CreateUsersDto {
   nascimento: string;
 
   @IsString()
-  criado_em: string;
+  createdAt: Date;
 
   @IsString()
-  modificado_em: string;
+  updatedAt: Date;
 
-  // @IsNumber()
-  // seguidores: [];
+  @IsString()
+  tweets: string[];
 
-  // @IsNumber()
-  // seguindo: number[];
+  @IsString()
+  follows: string[];
 
-  // @IsNumber()
-  // tweet: number[];
+  @IsString()
+  likes: string[]; 
+
 }

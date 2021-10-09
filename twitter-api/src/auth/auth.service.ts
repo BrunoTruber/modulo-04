@@ -14,7 +14,7 @@ import {
     constructor(private db: PrismaService, private jwt: JwtService) {}
   
     async login(data: LoginDto): Promise<AuthResponse> {
-      const { username, password } = data;
+      const { username, senha } = data;
   
       const user = await this.db.user.findUnique({
         where: { username },
@@ -24,7 +24,7 @@ import {
         throw new NotFoundException();
       }
   
-      const passwordValid = await bcrypt.compare(password, user.password);
+      const passwordValid = await bcrypt.compare(senha, user.senha);
   
       if (!passwordValid) {
         throw new UnauthorizedException('invalid_credentials');

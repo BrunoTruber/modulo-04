@@ -9,7 +9,7 @@ export class LoginDto {
 
   @IsString()
   @Length(8, 30)
-  password: string;
+  senha: string;
 }
 
 export class AuthResponse {

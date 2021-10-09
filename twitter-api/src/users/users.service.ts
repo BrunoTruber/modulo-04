@@ -36,12 +36,12 @@ export class UsersService {
       throw new ConflictException('username already exists');
     }
 
-    const hashedPassword = await bcrypt.hash(data.password, 10);
+    const hashedPassword = await bcrypt.hash(data.senha, 10);
 
     const user = await this.db.user.create({
       data: {
         ...data,
-        password: hashedPassword,
+        senha: hashedPassword,
       },
     });
 

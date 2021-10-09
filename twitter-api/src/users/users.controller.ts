@@ -6,16 +6,16 @@ import { UsersService } from './users.service';
 import { AuthGuard } from '@nestjs/passport';
 
 
-@UseGuards(AuthGuard('jwt'))
 @Controller('users')
 export class UsersController {
   constructor(private service: UsersService) {}
   
-  @Post('/create')
+  @Post('/create-account')
   create(@Body() data: CreateUsersDto): Promise<User> {
     return this.service.create(data);
   }
 
+  @UseGuards(AuthGuard('jwt'))
   @Get()
   findMany(): Promise<User[]> {
     return this.service.findMany()
