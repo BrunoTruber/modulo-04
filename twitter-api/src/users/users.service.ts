@@ -29,7 +29,7 @@ export class UsersService {
 
   async create(data: Prisma.UserCreateInput): Promise<User> {
     const existing = await this.db.user.findUnique({
-      where: { id: data.id },
+      where: { username: data.username },
     });
 
     if (existing) {

@@ -20,9 +20,9 @@ let UsersService = class UsersService {
     async findMany() {
         return this.db.user.findMany();
     }
-    async findUnique(username) {
+    async findUnique(id) {
         const user = await this.db.user.findUnique({
-            where: { username },
+            where: { id },
         });
         if (!user) {
             throw new common_1.NotFoundException();
@@ -36,9 +36,9 @@ let UsersService = class UsersService {
         if (existing) {
             throw new common_1.ConflictException('username already exists');
         }
-        const hashedPassword = await bcrypt.hash(data.password, 10);
+        const hashedPassword = await bcrypt.hash(data.senha, 10);
         const user = await this.db.user.create({
-            data: Object.assign(Object.assign({}, data), { password: hashedPassword }),
+            data: Object.assign(Object.assign({}, data), { senha: hashedPassword }),
         });
         return user;
     }

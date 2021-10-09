@@ -1,24 +1,24 @@
 /* eslint-disable prettier/prettier */
-import { IsString, Length, IsDate, IsOptional } from 'class-validator';
+import { IsString, Length, IsOptional, IsNotEmpty } from 'class-validator';
 
-export class PostTweetDto {
+export class CreateTweetDto {
   @IsString()
   @Length(1, 140)
   text: string;
 
-  @IsDate()
+  @IsNotEmpty()
   createdAt: string;
 
-  @IsDate()
+  @IsNotEmpty()
   updatedAt: string;
 
   @IsOptional()
   likes: number[];
 
   @IsOptional()
-  User: number;
+  User: string;
 
-  @IsOptional()
+  @IsNotEmpty()
   userId: number;
 
 }

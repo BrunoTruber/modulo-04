@@ -22,7 +22,7 @@ __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.Length)(8, 30),
     __metadata("design:type", String)
-], CreateUsersDto.prototype, "password", void 0);
+], CreateUsersDto.prototype, "senha", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.Length)(2, 50),
@@ -37,16 +37,28 @@ __decorate([
     __metadata("design:type", String)
 ], CreateUsersDto.prototype, "bio", void 0);
 __decorate([
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
+    (0, class_validator_1.IsDate)(),
+    __metadata("design:type", Date)
 ], CreateUsersDto.prototype, "nascimento", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], CreateUsersDto.prototype, "criado_em", void 0);
+    __metadata("design:type", Date)
+], CreateUsersDto.prototype, "createdAt", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], CreateUsersDto.prototype, "modificado_em", void 0);
+    __metadata("design:type", Date)
+], CreateUsersDto.prototype, "updatedAt", void 0);
+__decorate([
+    (0, class_validator_1.IsNumber)(),
+    __metadata("design:type", Array)
+], CreateUsersDto.prototype, "tweets", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Array)
+], CreateUsersDto.prototype, "follows", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Array)
+], CreateUsersDto.prototype, "likes", void 0);
 exports.CreateUsersDto = CreateUsersDto;
 //# sourceMappingURL=users.dto.js.map

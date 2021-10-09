@@ -14,56 +14,56 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
-const users_dto_1 = require("./users.dto");
+const client_1 = require(".prisma/client");
 const users_service_1 = require("./users.service");
 const passport_1 = require("@nestjs/passport");
 let UsersController = class UsersController {
     constructor(service) {
         this.service = service;
     }
-    findMany() {
-        return this.service.findMany();
-    }
-    findUnique(username) {
-        return this.service.findUnique(username);
-    }
     create(data) {
         return this.service.create(data);
     }
-    async delete(username) {
-        return this.service.deleteOneUser({ username: String(username) });
+    findMany() {
+        return this.service.findMany();
+    }
+    findUnique(id) {
+        return this.service.findUnique(id);
+    }
+    async delete(id) {
+        return this.service.deleteOneUser({ id: Number(id) });
     }
 };
 __decorate([
+    (0, common_1.Post)('/create-account'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "create", null);
+__decorate([
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "findMany", null);
 __decorate([
-    (0, common_1.Get)(':username'),
-    __param(0, (0, common_1.Param)('username')),
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "findUnique", null);
 __decorate([
-    (0, common_1.Post)('/create'),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [users_dto_1.CreateUsersDto]),
-    __metadata("design:returntype", Promise)
-], UsersController.prototype, "create", null);
-__decorate([
-    (0, common_1.Delete)('/delete/:username'),
+    (0, common_1.Delete)('/delete/:id'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
-    __param(0, (0, common_1.Param)('username')),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "delete", null);
 UsersController = __decorate([
-    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])
 ], UsersController);
