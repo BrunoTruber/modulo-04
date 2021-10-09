@@ -12,18 +12,18 @@ generator client {
 
 model User {
   id          Int      @id @default(autoincrement())
+  username    String   @unique
+  displayName String
+  imagem      String?
+  senha       String
+  nascimento  String
+  bio         String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   tweets      Tweet[]
   follows     Follow[]
   likes       Like[]
-  username    String   @unique
-  email       String   @unique
-  img         String?
-  password    String
-  displayName String
-  birth       String
-  bio         String
+
 }
 
 model Follow {

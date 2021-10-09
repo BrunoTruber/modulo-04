@@ -15,9 +15,9 @@ export class UsersService {
     return this.db.user.findMany();
   }
 
-  async findUnique(username: string): Promise<User> {
+  async findUnique(id: number): Promise<User> {
     const user = await this.db.user.findUnique({
-      where: { username },
+      where: { id },
     });
 
     if (!user) {
@@ -29,7 +29,7 @@ export class UsersService {
 
   async create(data: Prisma.UserCreateInput): Promise<User> {
     const existing = await this.db.user.findUnique({
-      where: { username: data.username },
+      where: { id: data.id },
     });
 
     if (existing) {

@@ -10,24 +10,26 @@ import { AuthGuard } from '@nestjs/passport';
 @Controller('users')
 export class UsersController {
   constructor(private service: UsersService) {}
-  @Get()
-  findMany(): Promise<User[]> {
-    return this.service.findMany()
-  }
-
-  @Get(':username')
-  findUnique(@Param('username') username: string): Promise<User> {
-    return this.service.findUnique(username);
-  }
-
+  
   @Post('/create')
   create(@Body() data: CreateUsersDto): Promise<User> {
     return this.service.create(data);
   }
 
-  @Delete('/delete/:username')
+  @Get()
+  findMany(): Promise<User[]> {
+    return this.service.findMany()
+  }
+
+  @Get(':id')
+  findUnique(@Param('id') id: number): Promise<User> {
+    return this.service.findUnique(id);
+  }
+
+
+  @Delete('/delete/:id')
   @UsePipes(ValidationPipe)
-  async delete(@Param('username') username: string) {
-    return this.service.deleteOneUser({ username: String(username) });
+  async delete(@Param('id') id: number) {
+    return this.service.deleteOneUser({ id: Number(id) });
   }
 }
