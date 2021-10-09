@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { IsDate, IsNumber, IsOptional, IsString, Length } from 'class-validator';
+import { IsDate, IsOptional, IsString, Length } from 'class-validator';
 export class CreateUsersDto {
   @IsString()
   @Length(3, 30)
@@ -28,7 +28,7 @@ export class CreateUsersDto {
   @IsString()
   updatedAt: Date;
 
-  @IsNumber()
+  @IsOptional()
   tweets:number[];
 
   @IsOptional()

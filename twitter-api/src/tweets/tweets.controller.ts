@@ -9,10 +9,10 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { Tweet, User } from '@prisma/client';
+import { Tweet, Prisma } from '@prisma/client';
 import { AuthGuard } from '@nestjs/passport';
-import AuthUser from '../common/decorators/auth-user.decorator';
-import { CreateTweetDto } from './dto/create-tweets.dto';
+//import AuthUser from '../common/decorators/auth-user.decorator';
+//import { CreateTweetDto } from './dto/create-tweets.dto';
 import { TweetsService } from './tweets.service';
 
 @UseGuards(AuthGuard('jwt'))
@@ -31,8 +31,8 @@ export class TweetsController {
   }
 
   @Post()
-  post(@Body() data: CreateTweetDto, @AuthUser() user: User.Id): Promise<Tweet> {
-    return this.service.post({user: user.id, data: data});
+  post(@Body() data: Prisma.TweetCreateInput): Promise<Tweet> {
+    return this.service.post(data);
   }
 
   @Delete(':id')

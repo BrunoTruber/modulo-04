@@ -14,11 +14,12 @@ const users_module_1 = require("./users/users.module");
 const auth_module_1 = require("./auth/auth.module");
 const follow_module_1 = require("./follow/follow.module");
 const likes_module_1 = require("./likes/likes.module");
+const tweets_module_1 = require("./tweets/tweets.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [users_module_1.UsersModule, auth_module_1.AuthModule, follow_module_1.FollowModule, likes_module_1.LikesModule],
+        imports: [users_module_1.UsersModule, auth_module_1.AuthModule, follow_module_1.FollowModule, likes_module_1.LikesModule, tweets_module_1.TweetsModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

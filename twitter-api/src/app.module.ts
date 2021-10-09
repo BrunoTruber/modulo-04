@@ -5,9 +5,10 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { FollowModule } from './follow/follow.module';
 import { LikesModule } from './likes/likes.module';
+import { TweetsModule } from './tweets/tweets.module';
 
 @Module({
-  imports: [UsersModule, AuthModule, FollowModule, LikesModule],
+  imports: [UsersModule, AuthModule, FollowModule, LikesModule, TweetsModule],
   controllers: [AppController],
   providers: [AppService],
 })

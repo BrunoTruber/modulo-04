@@ -49,7 +49,7 @@ __decorate([
     __metadata("design:type", Date)
 ], CreateUsersDto.prototype, "updatedAt", void 0);
 __decorate([
-    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Array)
 ], CreateUsersDto.prototype, "tweets", void 0);
 __decorate([
