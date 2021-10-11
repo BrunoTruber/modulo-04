@@ -44,11 +44,6 @@ export class TweetsService {
 
   post(data: Prisma.TweetCreateInput): Promise<Tweet> {
     return this.db.tweet.create({data: data} );
-    //   data: {
-    //   ...data,
-    //     tweets: { where: tweets }}
-    //   },
-    // );
   }
 
   async delete( id: number): Promise<void> {

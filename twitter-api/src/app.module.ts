@@ -3,8 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import { FollowModule } from './follow/follow.module';
-import { LikesModule } from './likes/likes.module';
+import { FollowModule } from './auth/follow/follow.module';
+import { LikesModule } from './auth/likes/likes.module';
 import { TweetsModule } from './auth/tweets/tweets.module';
 
 @Module({

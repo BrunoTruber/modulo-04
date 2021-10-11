@@ -12,8 +12,8 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const users_module_1 = require("./users/users.module");
 const auth_module_1 = require("./auth/auth.module");
-const follow_module_1 = require("./follow/follow.module");
-const likes_module_1 = require("./likes/likes.module");
+const follow_module_1 = require("./auth/follow/follow.module");
+const likes_module_1 = require("./auth/likes/likes.module");
 const tweets_module_1 = require("./auth/tweets/tweets.module");
 let AppModule = class AppModule {
 };
