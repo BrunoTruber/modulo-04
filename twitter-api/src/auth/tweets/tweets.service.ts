@@ -4,7 +4,7 @@ import {
   NotFoundException,
   ForbiddenException,
 } from '@nestjs/common';
-import { PrismaService } from '../prisma.service';
+import { PrismaService } from '../../prisma.service';
 import { Tweet, Prisma } from '@prisma/client';
 // import { CreateTweetDto } from './dto/create-tweets.dto';
 

@@ -14,7 +14,7 @@ const users_module_1 = require("./users/users.module");
 const auth_module_1 = require("./auth/auth.module");
 const follow_module_1 = require("./follow/follow.module");
 const likes_module_1 = require("./likes/likes.module");
-const tweets_module_1 = require("./tweets/tweets.module");
+const tweets_module_1 = require("./auth/tweets/tweets.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([

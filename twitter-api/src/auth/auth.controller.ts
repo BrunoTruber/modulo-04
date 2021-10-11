@@ -20,4 +20,5 @@ export class AuthController {
   me(@AuthUser() user: User): User {
     return user;
   }
+  
 }
