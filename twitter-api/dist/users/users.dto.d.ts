@@ -1,11 +1,10 @@
 export declare class CreateUsersDto {
-    id: number;
     username: string;
     senha: string;
     displayName: string;
     imagem: string;
     bio: string;
-    nascimento: Date;
+    nascimento: string;
     createdAt: Date;
     updatedAt: Date;
     tweets: number[];

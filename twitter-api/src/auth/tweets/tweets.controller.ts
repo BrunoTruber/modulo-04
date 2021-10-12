@@ -25,21 +25,25 @@ export class TweetsController {
   constructor(private service: TweetsService) {}
 
   @Get()
+  @UsePipes(ValidationPipe)
   find(@Query('username') username?: string): Promise<Tweet[]> {
     return this.service.find(username);
   }
 
   @Get(':id')
+  @UsePipes(ValidationPipe)
   findOne(@Param('id') id: number): Promise<Tweet> {
     return this.service.findOneTweet(id);
   }
 
-  @Post()
+  @Post('/create')
+  @UsePipes(ValidationPipe)
   post(@Body() data: Prisma.TweetCreateInput): Promise<Tweet> {
     return this.service.post(data);
   }
 
-  @Delete(':id')
+  @Delete('delete/:id')
+  @UsePipes(ValidationPipe)
   delete(@Param('id') id: number): Promise<void> {
     return this.service.delete( id);
   }

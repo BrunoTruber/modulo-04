@@ -1,14 +1,14 @@
 /* eslint-disable prettier/prettier */
-import { IsString, Length, IsNotEmpty } from 'class-validator';
+import { IsString, Length, IsOptional } from 'class-validator';
 
 export class CreateTweetDto {
   @IsString()
   @Length(1, 140)
   text: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   createdAt: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   updatedAt: string;
 }

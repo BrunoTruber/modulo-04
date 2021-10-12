@@ -7,7 +7,6 @@ import {
 import { PrismaService } from '../../prisma.service';
 import { Tweet, Prisma } from '@prisma/client';
 import { CreateTweetDto } from './dto/create-tweets.dto';
-// import { CreateTweetDto } from './dto/create-tweets.dto';
 
 
 @Injectable()
@@ -73,7 +72,6 @@ export class TweetsService {
 
     await this.db.tweet.delete({ where: { id } });
 
-  
   }
 
 }

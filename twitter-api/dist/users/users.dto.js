@@ -14,10 +14,6 @@ const class_validator_1 = require("class-validator");
 class CreateUsersDto {
 }
 __decorate([
-    (0, class_validator_1.IsNumber)(),
-    __metadata("design:type", Number)
-], CreateUsersDto.prototype, "id", void 0);
-__decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.Length)(3, 30),
     __metadata("design:type", String)
@@ -42,7 +38,7 @@ __decorate([
 ], CreateUsersDto.prototype, "bio", void 0);
 __decorate([
     (0, class_validator_1.IsDate)(),
-    __metadata("design:type", Date)
+    __metadata("design:type", String)
 ], CreateUsersDto.prototype, "nascimento", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
