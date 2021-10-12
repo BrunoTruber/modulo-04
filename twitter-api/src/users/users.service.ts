@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   Injectable,
   NotFoundException,
@@ -6,6 +7,7 @@ import {
 import { User, Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma.service';
 import * as bcrypt from 'bcrypt';
+import { CreateUsersDto} from 'src/users/users.dto';
 
 @Injectable()
 export class UsersService {
@@ -46,6 +48,18 @@ export class UsersService {
     });
 
     return user;
+  }
+
+  async updateOneUser(id: number, user: CreateUsersDto): Promise<User> {
+    return await this.db.user.update({
+      data: {
+        ...user,
+        id: undefined,
+      },
+      where: {
+        id,
+      }
+    });
   }
 
   async deleteOneUser(where: Prisma.UserWhereUniqueInput): Promise<User> {

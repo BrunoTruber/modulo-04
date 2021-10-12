@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from '../../prisma.service';
 import { Tweet, Prisma } from '@prisma/client';
+import { CreateTweetDto } from './dto/create-tweets.dto';
 // import { CreateTweetDto } from './dto/create-tweets.dto';
 
 
@@ -46,6 +47,19 @@ export class TweetsService {
     return this.db.tweet.create({data: data} );
   }
 
+  async update(id: number, tweet: CreateTweetDto){
+    return this.db.tweet.update({
+      data: {
+        ...tweet,
+        id: undefined,
+      },
+      where: {
+        id,
+      },
+    });
+  
+  }
+
   async delete( id: number): Promise<void> {
     const tweet = await this.db.tweet.findUnique({ where: { id } });
 
@@ -61,4 +75,5 @@ export class TweetsService {
 
   
   }
+
 }

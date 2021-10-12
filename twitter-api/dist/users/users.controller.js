@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
 const client_1 = require(".prisma/client");
+const users_dto_1 = require("./users.dto");
 const users_service_1 = require("./users.service");
 const passport_1 = require("@nestjs/passport");
 let UsersController = class UsersController {
@@ -32,6 +33,9 @@ let UsersController = class UsersController {
     }
     async delete(id) {
         return this.service.deleteOneUser({ id: Number(id) });
+    }
+    async update(updateUser, id) {
+        return this.service.updateOneUser(id, updateUser);
     }
 };
 __decorate([
@@ -63,6 +67,15 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "delete", null);
+__decorate([
+    (0, common_1.Put)('/update/:id'),
+    (0, common_1.UsePipes)(common_1.ValidationPipe),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [users_dto_1.CreateUsersDto, Number]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "update", null);
 UsersController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])

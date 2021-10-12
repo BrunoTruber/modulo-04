@@ -1,6 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { IsDate, IsOptional, IsString, Length } from 'class-validator';
+import { IsDate, IsNumber, IsOptional, IsString, Length } from 'class-validator';
 export class CreateUsersDto {
+  @IsNumber()
+  id: number;
+  
   @IsString()
   @Length(3, 30)
   username: string;

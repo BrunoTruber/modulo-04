@@ -5,14 +5,18 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Post,
+  Put,
   Query,
   UseGuards,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { Tweet, Prisma } from '@prisma/client';
 import { AuthGuard } from '@nestjs/passport';
 //import AuthUser from '../common/decorators/auth-user.decorator';
-//import { CreateTweetDto } from './dto/create-tweets.dto';
+import { CreateTweetDto } from 'src/auth/tweets/dto/create-tweets.dto';
 import { TweetsService } from './tweets.service';
 
 @UseGuards(AuthGuard('jwt'))
@@ -38,5 +42,14 @@ export class TweetsController {
   @Delete(':id')
   delete(@Param('id') id: number): Promise<void> {
     return this.service.delete( id);
+  }
+
+  @Put('/update/:id')
+  @UsePipes(ValidationPipe)
+  async update(
+    @Body() updateTweet: CreateTweetDto,
+    @Param('id', ParseIntPipe) id: number,
+  ): Promise<Tweet>{
+    return this.service.update(id, updateTweet);
   }
 }

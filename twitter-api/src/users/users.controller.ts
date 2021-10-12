@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Get, Post, Param, UseGuards, UsePipes, ValidationPipe, Delete} from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, Param, UseGuards, UsePipes, ValidationPipe, Delete, ParseIntPipe} from '@nestjs/common';
 import { User, Prisma } from '.prisma/client';
-// import { CreateUsersDto } from './users.dto';
+import { CreateUsersDto } from './users.dto';
 import { UsersService } from './users.service';
 import { AuthGuard } from '@nestjs/passport';
 
@@ -31,5 +31,11 @@ export class UsersController {
   @UsePipes(ValidationPipe)
   async delete(@Param('id') id: number) {
     return this.service.deleteOneUser({ id: Number(id) });
+  }
+
+  @Put('/update/:id')
+  @UsePipes(ValidationPipe)
+  async update(@Body() updateUser: CreateUsersDto, @Param('id', ParseIntPipe) id: number,): Promise<User> {
+    return this.service.updateOneUser( id, updateUser );
   }
 }

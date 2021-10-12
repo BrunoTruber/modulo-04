@@ -13,6 +13,7 @@ exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma.service");
 const bcrypt = require("bcrypt");
+const users_dto_1 = require("./users.dto");
 let UsersService = class UsersService {
     constructor(db) {
         this.db = db;
@@ -41,6 +42,14 @@ let UsersService = class UsersService {
             data: Object.assign(Object.assign({}, data), { senha: hashedPassword }),
         });
         return user;
+    }
+    async updateOneUser(id, user) {
+        return await this.db.user.update({
+            data: Object.assign(Object.assign({}, user), { id: undefined }),
+            where: {
+                id,
+            }
+        });
     }
     async deleteOneUser(where) {
         return this.db.user.delete({ where });
