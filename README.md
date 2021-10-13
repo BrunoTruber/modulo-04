@@ -1,1 +1,1 @@
-# modulo-04
+# modulo-04 - conteúdo de aprendizado contínuo
